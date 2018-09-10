@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int 	minutes(int min)
 {
@@ -27,7 +29,8 @@ int		main(void)
 		int hrs;
 
 		printf("Type number of hours:\n");
-		scanf("%d", &hrs);
+		if (scanf("%d", &hrs) != 1)
+			printf("Error input\n:");
 		while (timer < (hrs*minutes(60)))
 		{
 			sleep(1);
@@ -40,22 +43,20 @@ int		main(void)
 	{
 		int hrs;
 		int min;
-		int error;
 
 		printf("Type number of hours:\n");
-		if (error = scanf("%d", &hrs) != 1)
+		if (scanf("%d", &hrs) != 1)
 			printf("Error input\n");
 		else if (hrs < 0)
-			printf("Error input"\n);
-		else 
-			printf("Type number of minutes:\n");
-		if (error = scanf("%d", &min) != 1)
+			printf("Error input\n"); 
+		printf("Type number of minutes:\n");
+		if (scanf("%d", &min) != 1)
 			printf("Error input\n");
 		else if (min < 0 || min >= 60)
 			printf("Error input\n");
 		else
 		{
-			while (timer < (hours*minutes(60) + minutes(min)))
+			while (timer < (hrs*minutes(60) + minutes(min)))
 			{
 				sleep(1);
 				timer++;
@@ -66,11 +67,10 @@ int		main(void)
 	}
 	if (i == 3)
 	{
-		int error;
 		int min;
 
 		printf("Type number of minutes\n");
-		if (error = scanf("%d", &min) != 1)
+		if (scanf("%d", &min) != 1)
 			printf("Error input\n");
 		else if (min < 0)
 			printf("Error input\n");
@@ -87,17 +87,16 @@ int		main(void)
 	}
 	if (i == 4)
 	{
-		int error;
 		int min;
 		int sec;
 
 		printf("Type number of minutes:\n");
-		if (error = scanf("%d", &min) != 1)
+		if (scanf("%d", &min) != 1)
 			printf("Error input\n");
 		else if (min < 0 || min >= 60)
 			printf("Wrong input\n");
 		printf("Type number of seconds:\n");
-		if (error = scanf("%d", &sec) != 1)
+		if (scanf("%d", &sec) != 1)
 			printf("Error input\n");
 		else if (sec < 0 || sec >= 60)
 			printf("Error input\n");
@@ -114,14 +113,13 @@ int		main(void)
 	}
 	if (i == 5)
 	{
-		int error;
 		int sec;
 
 		printf("Type number of seconds:\n");
-		if (error = scanf("%d", &sec) != 1)
-			printf("Error input");
+		if (scanf("%d", &sec) != 1)
+			printf("Error input\n");
 		else if (sec < 0 || sec >= 60)
-			printf("Error input");
+			printf("Error input\n");
 		else
 		{
 			while (timer < sec)
