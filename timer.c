@@ -41,7 +41,7 @@ int		main(void)
 	{
 		int timer;
 		int hrs;
-		int minutes;
+		int min;
 		int error;
 
 		printf("Type number of hours:\n");
@@ -50,13 +50,21 @@ int		main(void)
 		else if (hrs < 0)
 			printf("Error input"\n);
 		else 
-		printf("Type number of minutes:\n");
-		if (error = scanf("%d", minutes) != 1)
+			printf("Type number of minutes:\n");
+		if (error = scanf("%d", min) != 1)
 			printf("Error input\n");
-		else if (minutes < 0 || minutes >= 60)
+		else if (min < 0 || min >= 60)
 			printf("Error input\n");
 		else
 		{
 			timer = 0;
-			while (timer < 
+			while (timer < (hours*minutes(60) + minutes(min)))
+			{
+				sleep(1);
+				timer++;
+			}
+			system("afplay alert.mp3");
+			return (0);
+		}
+	}
 }
